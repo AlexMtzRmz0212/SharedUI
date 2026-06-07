@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/*
+  Shared design tokens for the BitToByte ecosystem.
+  These @theme values will be available in all consuming apps.
+*/
+@theme {
+  /* Add brand tokens here as your system grows */
+}
