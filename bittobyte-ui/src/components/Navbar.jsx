@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Code2, GitBranch } from 'lucide-react';
 
-const links = [
+const DEFAULT_LINKS = [
   { label: 'Work', href: '#projects' },
   { label: 'Capabilities', href: '#capabilities' },
   { label: 'Stack', href: '#stack' },
 ];
 
-const Navbar = () => {
+const Navbar = ({
+  links = DEFAULT_LINKS,
+  logoText = 'BitToByte',
+  logoHref = '#top',
+  githubUser = 'AlexMtzRmz0212',
+}) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,17 +31,11 @@ const Navbar = () => {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a href="#top" className="group flex items-center gap-2.5">
+        <a href={logoHref} className="group flex items-center gap-2.5">
           <span className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg shadow-blue-500/30 transition-transform duration-300 group-hover:scale-110">
             <Code2 className="h-5 w-5 text-white" />
           </span>
-          <span className="text-xl font-bold tracking-tight">
-            Bit
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              To
-            </span>
-            Byte
-          </span>
+          <span className="text-xl font-bold tracking-tight">{logoText}</span>
         </a>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -52,7 +51,7 @@ const Navbar = () => {
         </div>
 
         <a
-          href="https://github.com/AlexMtzRmz0212"
+          href={`https://github.com/${githubUser}`}
           target="_blank"
           rel="noreferrer"
           className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-gray-300 transition-all duration-300 hover:border-white/20 hover:bg-white/10 hover:text-white"
