@@ -35,7 +35,15 @@ const Navbar = ({
           <span className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg shadow-blue-500/30 transition-transform duration-300 group-hover:scale-110">
             <Code2 className="h-5 w-5 text-white" />
           </span>
-          <span className="text-xl font-bold tracking-tight">{logoText}</span>
+          <span className="text-xl font-bold tracking-tight">
+            {logoText === 'BitToByte' ? (
+              <>
+                Bit<span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">To</span>Byte
+              </>
+            ) : (
+              logoText
+            )}
+          </span>
         </a>
 
         <div className="hidden items-center gap-1 md:flex">
